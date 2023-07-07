@@ -3,7 +3,6 @@ const Products = require('../models/productSchema');//import model
 //to get all products controller
 exports.products = async (req,res)=>{
     try {
-        console.log('hi');
         const products = await Products.find({});
         // send any data to as response we use res.json, not an file send
         return res.status(200).json({
@@ -22,6 +21,7 @@ exports.products = async (req,res)=>{
 //create new products controller
 exports.create = async (req,res)=>{
     try {
+        const data = req.body;
         const product = await Products.create(data);
 
         return res.status(200).json({

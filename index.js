@@ -8,6 +8,7 @@ app.use(bodyParser.json()); // parse application/json [content-type].
 // just for console.log request url
 app.use('/',(req,res,next)=>{
     console.log("Request url : ",req.url);
+    next();
 })
 //use router MW for any request start with '/'
 app.use('/',require('./routers/index'));
